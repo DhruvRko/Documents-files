@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.margin
+{
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.width
+{
+  width: auto;
+  height: auto;
+}
+.table-danger {
+  background-color: #f8d7da !important;
+}
