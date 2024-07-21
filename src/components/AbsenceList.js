@@ -41,6 +41,42 @@ const AbsenceList = () => {
       fetchConflicts();
     }
   }, [absences]);
+  /* Check for conflicts manually
+   useEffect(() => {
+    const checkConflicts = () => {
+      const conflictMap = {};
+
+      for (let i = 0; i < absences.length; i++) {
+        for (let j = i + 1; j < absences.length; j++) {
+          const absenceA = absences[i];
+          const absenceB = absences[j];
+
+          if (absenceA.employee.id === absenceB.employee.id) {
+            const startA = new Date(absenceA.startDate);
+            const endA = new Date(startA.getTime() + absenceA.days * 86400000);
+            const startB = new Date(absenceB.startDate);
+            const endB = new Date(startB.getTime() + absenceB.days * 86400000);
+
+            if (
+              (startA <= startB && startB <= endA) ||
+              (startA <= endB && endB <= endA) ||
+              (startB <= startA && startA <= endB) ||
+              (startB <= endA && endA <= endB)
+            ) {
+              conflictMap[absenceA.id] = true;
+              conflictMap[absenceB.id] = true;
+            }
+          }
+        }
+      }
+
+      setConflicts(conflictMap);
+    };
+
+    if (absences.length > 0) {
+      checkConflicts();
+    }
+  }, [absences]);*/
 
   //sorting the data using key values and Manages the sorting configuration.
   const sortData = (key) => {
